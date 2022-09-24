@@ -1,38 +1,53 @@
-.App {
+body{
+   background-color: rgb(223, 218, 218);
+}
+
+.main {
+  width: 70%;
+  margin-left: 15%;
+  background-color: rgb(249, 242, 217);
+}
+
+#infoDiv, #educationDiv, #experienceDiv{
+  margin-top: 2%;
+  padding: 2rem;
+}
+
+#infoForm {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 10px;
+}
+
+#educationForm {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 10px;
+}
+
+
+.head {
+  display: grid;
+  grid-row: 1fr 1fr;
+  background-color: rgb(127, 227, 255);
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contactInfo{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#descriptionInput {
+  width: 400px;
+  height: 200px;
+}
+.resumeContainer {
+  display: grid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resume {
+  width: 800px;
+  height: 1100px;
+  background-color: white;
+  justify-self: center;
 }

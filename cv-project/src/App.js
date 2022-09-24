@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import Header from './components/Header';
 import Experience from './components/Experience';
 import Education from './components/Education';
+import uniqid from "uniqid";
 
 
 class App extends Component {
@@ -16,10 +17,11 @@ class App extends Component {
             phoneNumber : '',
             email : '',
             linkedIn : '',
-            degree: {school : '', major : '', minor : '',startDate : '', endDate:''},
+            degree: {school : '', major : '', minor : '',startDate : '', endDate:'', id: uniqid()},
             education: [],
-            experience: { company:'', position:'', description:'', startDate:'', endDate:''},
+            experience: { company:'', position:'', description:'', startDate:'', endDate:'', id: uniqid()},
             workHistory: [],
+            
         };
     }
     
@@ -29,8 +31,6 @@ class App extends Component {
             phoneNumber: document.getElementById('numberInput').value,
             email: document.getElementById('emailInput').value,
             linkedIn: document.getElementById('linkedInInput').value,
-            
-            
         })
     }
     
@@ -42,6 +42,7 @@ class App extends Component {
                 minor: document.getElementById('minorInput').value,
                 startDate: document.getElementById('schoolStartInput').value,
                 endDate: document.getElementById('schoolEndInput').value,
+                id: this.state.degree.id
             }
         })
     }
@@ -53,6 +54,7 @@ class App extends Component {
                 description: document.getElementById('descriptionInput').value,
                 startDate: document.getElementById('positionStartInput').value,
                 endDate: document.getElementById('positionEndInput').value,
+                id: this.state.experience.id
             }
         })
     }
@@ -67,18 +69,22 @@ class App extends Component {
                 minor: document.getElementById('minorInput').value,
                 startDate: document.getElementById('schoolStartInput').value,
                 endDate: document.getElementById('schoolEndInput').value,
+                id: uniqid()
             }
         })
     }
 
     submitExperience = (e) => {
+        e.preventDefault();
         this.setState({
+            workHistory : this.state.workHistory.concat(this.state.experience),
             experience: {
                 company: document.getElementById('companyInput').value,
                 position: document.getElementById('positionInput').value,
                 description: document.getElementById('descriptionInput').value,
                 startDate: document.getElementById('positionStartInput').value,
                 endDate: document.getElementById('positionEndInput').value,
+                id: uniqid()
             }
         })
     }
@@ -87,7 +93,7 @@ class App extends Component {
         const { fullName, phoneNumber, email, linkedIn, degree, education, experience, workHistory} = this.state;
 
         return(
-            <div>
+            <div className='main'>
                 <div id='infoDiv'>
                     <form id='infoForm'>
                         <label id='nameLabel' className='label'>Name</label>
@@ -162,7 +168,7 @@ class App extends Component {
                 </div>
                 <div id='experienceDiv'>
                     <form id='experienceForm' onSubmit={this.submitExperience}>
-                    <label id='companyLabel' className='label'>Company</label>
+                        <label id='companyLabel' className='label'>Company</label>
                         <input 
                             onChange={this.experienceChange}
                             type='text'
@@ -199,10 +205,15 @@ class App extends Component {
                         />
                         <button type='submit'>Add Experience</button>
                     </form>
-                    <Header name = {this.state.fullName} phone = {this.state.phoneNumber} email = {this.state.email} linkedIn = {this.state.linkedIn}/>
-                    <Education  education={education}/>
-                    <Experience  />
                 </div>
+                <div className='resumeContainer'>
+                    <div className='resume'>
+                        <Header name = {this.state.fullName} phone = {this.state.phoneNumber} email = {this.state.email} linkedIn = {this.state.linkedIn}/>
+                        <Education  education={education}/>
+                        <Experience  workHistory={workHistory}/>
+                    </div>
+                </div>
+            
             </div>
         )
     }
