@@ -35,7 +35,7 @@ class App extends Component {
 
     
     
-    infoChange = (e) => {
+    infoChange = () => {
         this.setState({
             fullName: document.getElementById('nameInput').value,
             phoneNumber: document.getElementById('numberInput').value,
@@ -45,7 +45,7 @@ class App extends Component {
         })
     }
     
-    educationChange = (e) => {
+    educationChange = () => {
         this.setState({
             degree: {
                 school: document.getElementById('schoolInput').value,
@@ -57,7 +57,7 @@ class App extends Component {
             }
         })
     }
-    experienceChange= (e) => {
+    experienceChange= () => {
         this.setState({
             experience: {
                 company: document.getElementById('companyInput').value,

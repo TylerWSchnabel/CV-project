@@ -5,8 +5,6 @@ const Education = (props) => {
 
     const { education } = props;
 
-    
-
     return(
         <div className="educationDiv">
             {education.map((degree) => {
