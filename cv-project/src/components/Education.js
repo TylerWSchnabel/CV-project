@@ -5,12 +5,14 @@ const Education = (props) => {
 
     const { education } = props;
 
+    
+
     return(
         <div className="educationDiv">
             {education.map((degree) => {
-                return <div className="degree" key={degree.id}>
+                return <div className="degree" id={degree.id} key={degree.id}>
                             <div className="school">
-                                <p>{degree.school}</p>
+                                <h3>{degree.school}</h3>
                             </div>
                             <div className="major">
                                 <p>{degree.major}</p>
@@ -19,12 +21,12 @@ const Education = (props) => {
                                 <p>{degree.minor}</p>
                             </div>
                             <div className="degreeStartDate">
-                                <p>{degree.degreeStartDate}</p>
+                                <p>{degree.startDate}</p>
                             </div>
                             <div className="degreeEndDate">
-                                <p>{degree.degreeEndDate}</p>
+                                <p>{degree.endDate}</p>
                             </div>
-                            <button className="editEducation">Edit Education</button>
+                            <button className="editEducation" >Edit Education</button>
                             <button className="deleteEducation">Delete Education</button>
                         </div>
             })}

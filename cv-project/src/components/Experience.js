@@ -8,9 +8,9 @@ const Experience = (props) => {
     return(
         <div className="workHistoryDiv">
             {workHistory.map((experience) => {
-                return <div className="experienceDiv" key={experience.id}>
+                return <div className="experienceDiv" id={experience.id} key={experience.id}>
                             <div className="company">
-                                <h1>{experience.company}</h1>
+                                <h3>{experience.company}</h3>
                             </div>
                             <div className="position">
                                 <p>{experience.position}</p>

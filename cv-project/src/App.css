@@ -7,24 +7,53 @@ body{
   margin-left: 15%;
   background-color: rgb(249, 242, 217);
 }
+.mainTitle{
+  padding-top: 2rem;
+  text-align: center;
+
+}
 
 #infoDiv, #educationDiv, #experienceDiv{
-  margin-top: 2%;
   padding: 2rem;
+  padding-bottom: 0;
 }
 
 #infoForm {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-#educationForm {
+#aboutInput {
+  grid-column: 1 / span 2;
+  height: 5rem;
+  text-align: start;
+  resize: vertical;
+}
+
+#descriptionInput {
+  grid-column: 2 / span 3;
+  height: 200px;
+  resize: vertical;
+  white-space: pre-wrap;
+}
+
+.label {
+  font-weight: bold;
+}
+
+#educationForm, #experienceForm {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 2fr;
   gap: 10px;
 }
 
+.submitBtn {
+  grid-column: 1 / span 4;
+  width: 25%;
+  height: 2rem;
+  justify-self: center;
+}
 
 .head {
   display: grid;
@@ -37,17 +66,34 @@ body{
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#descriptionInput {
-  width: 400px;
-  height: 200px;
+
+
+#aboutDiv {
+  text-align: center;
 }
+
 .resumeContainer {
   display: grid;
 }
 
 .resume {
+  margin-top: 50px;
   width: 800px;
   height: 1100px;
   background-color: white;
   justify-self: center;
+  margin-bottom: 50Px;
+}
+
+.resumeMain {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#about {
+  white-space: pre-line;
+}
+
+.description {
+  white-space: pre-line;
 }
