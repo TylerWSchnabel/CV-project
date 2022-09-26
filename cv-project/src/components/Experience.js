@@ -2,10 +2,10 @@
 import React from "react";
 
 const Experience = (props) => {
-
     const { workHistory } = props;
-
-    return(
+    
+    
+    return( 
         <div className="workHistoryDiv">
             {workHistory.map((experience) => {
                 return <div className="experienceDiv" id={experience.id} key={experience.id}>
@@ -15,11 +15,13 @@ const Experience = (props) => {
                             <div className="position">
                                 <p>{experience.position}</p>
                             </div>
-                            <div className="positionStartDate">
-                                <p>{experience.startDate}</p>
-                            </div>
-                            <div className="posiitonEndDate">
-                                <p>{experience.endDate}</p>
+                            <div className="dates">
+                                <div className="positionStartDate">
+                                    <p>{experience.startDate}</p>
+                                </div>
+                                <div className="posiitonEndDate">
+                                    <p>{experience.endDate}</p>
+                                </div>
                             </div>
                             <div className="description">
                                 <p>{experience.description}</p>
@@ -31,6 +33,6 @@ const Experience = (props) => {
                         </div>
             })}
         </div>
-    )
+    );
 }
 export default Experience;
