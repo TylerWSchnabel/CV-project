@@ -15,14 +15,14 @@ const Experience = (props) => {
                             <div className="position">
                                 <p>{experience.position}</p>
                             </div>
-                            <div className="description">
-                                <p>{experience.description}</p>
-                            </div>
                             <div className="positionStartDate">
                                 <p>{experience.startDate}</p>
                             </div>
                             <div className="posiitonEndDate">
                                 <p>{experience.endDate}</p>
+                            </div>
+                            <div className="description">
+                                <p>{experience.description}</p>
                             </div>
                             <div className="editButtons">
                                 <button className="editExperience">Edit Experience</button>
