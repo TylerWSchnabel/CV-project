@@ -3,9 +3,7 @@ import React from "react";
 
 const Education = (props) => {
 
-    const { education } = props;
-
-    
+    const { education, removeEducation  } = props;
 
     return(
         <div className="educationDiv">
@@ -15,19 +13,20 @@ const Education = (props) => {
                                 <h3>{degree.school}</h3>
                             </div>
                             <div className="major">
+                                <p>Major :</p>
                                 <p>{degree.major}</p>
                             </div>
                             <div className="minor">
+                                <p>Minor :</p>
                                 <p>{degree.minor}</p>
                             </div>
                             <div className="degreeStartDate">
-                                <p>{degree.startDate}</p>
+                                <p>{degree.startDate} to {degree.endDate}</p>
                             </div>
-                            <div className="degreeEndDate">
-                                <p>{degree.endDate}</p>
+                            <div className="resumeBtns">
+                                <button className="editEducation" >Edit Education</button>
+                                <button className="deleteEducation" onClick={()=>removeEducation(degree.id)}>Delete Education</button>
                             </div>
-                            <button className="editEducation" >Edit Education</button>
-                            <button className="deleteEducation">Delete Education</button>
                         </div>
             })}
         </div>

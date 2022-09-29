@@ -10,6 +10,7 @@ class About extends Component {
     render(){
         return(
             <div id="aboutDiv">
+                <hr className="sectionDivider"></hr>
                 <p id="about">
                     {this.props.about}
                 </p>
