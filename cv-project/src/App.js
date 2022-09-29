@@ -26,14 +26,30 @@ class App extends Component {
         };
 
         this.removeEducation = this.removeEducation.bind(this);
+        this.removeExperience = this.removeExperience.bind(this);
+        
+        
+    }
+
+    removeExperience = (id) => {
+        this.setState( {
+            workHistory: this.state.workHistory.filter(degree=> degree.id !== id)
+        })
     };
 
-    removeEducation =(id) => {
-        this.setState({education: this.state.education.filter(function(degree) { 
-            return degree !== degree.id; 
-    })})};
+    editExperience = () => {
 
+    }
     
+    removeEducation = (id) => {
+        this.setState( {
+            education: this.state.education.filter(experience=> experience.id !== id)
+        })
+    };
+
+    editEducation = () => {
+        
+    }
     
     infoChange = () => {
         this.setState({
@@ -100,8 +116,20 @@ class App extends Component {
         })
     }  
     
+    previewMode = ()=> {
+        let divs = document.getElementsByClassName('resumeBtns');
+        for (let i=0; i< divs.length; i++){
+            divs[i].style.display = 'none';
+        }
+    }
 
-    
+    editMode = ()=>{
+        let divs = document.getElementsByClassName('resumeBtns');
+        for (let i=0; i< divs.length; i++){
+                divs[i].style.display = 'grid';
+        }
+    }
+
 
     render() {
         const { fullName, phoneNumber, email, linkedIn, degree, education, experience, workHistory} = this.state;
@@ -232,6 +260,11 @@ class App extends Component {
                     </form>
                 </div>
                 <div className='resumeContainer'>
+                    <h2 className='resumeTitle'>Resume Preview</h2>
+                    <div className='previewBtnsDiv'>
+                        <button onClick={this.editMode} className='previewBtns'>Edit Mode</button>
+                        <button onClick={this.previewMode} className='previewBtns'>Peview Mode</button>
+                    </div>
                     <div className='resume'>
                         <div className='resumeHead'>
                             <Header name = {this.state.fullName} phone = {this.state.phoneNumber} email = {this.state.email} linkedIn = {this.state.linkedIn} about = {this.state.about}/>
@@ -239,9 +272,9 @@ class App extends Component {
                         <div className='resumeMain'>
                             <About about = {this.state.about}/>
                             <h2 className='secHead'>Experience</h2>
-                            <Experience  workHistory={workHistory}/>
+                            <Experience  workHistory={workHistory} removeExperience={this.removeExperience}/>
                             <h2 className='secHead'>Education</h2>
-                            <Education  education={education}/>
+                            <Education  education={education} removeEducation={this.removeEducation}/>
                         </div>
                     </div>
                 </div>
@@ -249,6 +282,7 @@ class App extends Component {
             </div>
         )
     }
+
 }
 
 export default App;
