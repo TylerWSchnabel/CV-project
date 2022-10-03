@@ -27,7 +27,8 @@ class App extends Component {
 
         this.removeEducation = this.removeEducation.bind(this);
         this.removeExperience = this.removeExperience.bind(this);
-        
+        this.editExperience = this.editExperience.bind(this);
+        this.editEducation = this.editEducation.bind(this);
         
     }
 
@@ -37,9 +38,27 @@ class App extends Component {
         })
     };
 
-    editExperience = () => {
-
+    editExperience = (id) => {
+        const newHistory = this.state.workHistory.map((experience) => {
+            if(experience.id === id){
+                return{
+                    company: document.getElementById("companyInupt-"+experience.id).value,
+                    position: document.getElementById("positionInupt-"+experience.id).value,
+                    startDate: document.getElementById("startDateInupt-"+experience.id).value,
+                    endDate: document.getElementById("endDateInupt-"+experience.id).value,
+                    description: document.getElementById("descriptionInupt-"+experience.id).value,
+                    id: uniqid()
+                };
+            } else {
+                return experience;
+            }
+        
+        })
+        this.setState({
+            workHistory: newHistory.concat(),
+        })
     }
+    
     
     removeEducation = (id) => {
         this.setState( {
@@ -47,8 +66,25 @@ class App extends Component {
         })
     };
 
-    editEducation = () => {
+    editEducation = (id) => {
+        const newArray = this.state.education.map((degree) => {
+            if(degree.id === id){
+                return{
+                    school: document.getElementById("schoolInupt-"+degree.id).value,
+                    major: document.getElementById("majorInupt-"+degree.id).value,
+                    startDate: document.getElementById("startDateInupt-"+degree.id).value,
+                    endDate: document.getElementById("endDateInupt-"+degree.id).value,
+                    minor: document.getElementById("minorInupt-"+degree.id).value,
+                    id: uniqid()
+                };
+            } else{
+                return degree;
+            }
         
+        })
+        this.setState({
+            education: newArray.concat(),
+        })
     }
     
     infoChange = (e) => {
@@ -117,17 +153,25 @@ class App extends Component {
     }  
     
     previewMode = ()=> {
-        let divs = document.getElementsByClassName('resumeBtns');
-        for (let i=0; i< divs.length; i++){
-            divs[i].style.display = 'none';
-        }
+        let divs = document.querySelectorAll('.resumeBtns');
+        let inputs = document.querySelectorAll('.editInputs');
+        divs.forEach(element => {
+            element.style.display = "none";
+        });
+        inputs.forEach(input => {
+            input.style.display = "none";
+        })
     }
 
     editMode = ()=>{
-        let divs = document.getElementsByClassName('resumeBtns');
-        for (let i=0; i< divs.length; i++){
-                divs[i].style.display = 'grid';
-        }
+        let divs = document.querySelectorAll('.resumeBtns');
+        let inputs = document.querySelectorAll('.editInputs');
+        divs.forEach(element => {
+            element.style.display = "block";
+        });
+        inputs.forEach(input => {
+            input.style.display = "block";
+        })
     }
 
 
@@ -272,9 +316,9 @@ class App extends Component {
                         <div className='resumeMain'>
                             <About about = {this.state.about}/>
                             <h2 className='secHead'>Experience</h2>
-                            <Experience  workHistory={workHistory} removeExperience={this.removeExperience}/>
+                            <Experience  workHistory={workHistory} removeExperience={this.removeExperience} editExperience={this.editExperience}/>
                             <h2 className='secHead'>Education</h2>
-                            <Education  education={education} removeEducation={this.removeEducation}/>
+                            <Education  education={education} removeEducation={this.removeEducation} editEducation={this.editEducation}/>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import React from "react";
 
 const Education = (props) => {
 
-    const { education, removeEducation  } = props;
+    const { education, removeEducation, editEducation  } = props;
 
     return(
         <div className="educationDiv">
@@ -29,7 +29,7 @@ const Education = (props) => {
                                 <input type='date' className='editInputs' id={"endDateInupt-"+degree.id} defaultValue={degree.endDate}></input>
                             </div>
                             <div className="resumeBtns">
-                                <button className="editEducation" >Edit Education</button>
+                                <button className="editEducation" onClick={()=>editEducation(degree.id)}>Edit Education</button>
                                 <button className="deleteEducation" onClick={()=>removeEducation(degree.id)}>Delete Education</button>
                             </div>
                         </div>

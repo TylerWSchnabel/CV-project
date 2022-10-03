@@ -2,7 +2,7 @@
 import React from "react";
 
 const Experience = (props) => {
-    const { workHistory, removeExperience } = props;
+    const { workHistory, removeExperience, editExperience } = props;
     
     
     return( 
@@ -34,7 +34,7 @@ const Experience = (props) => {
                                 <textarea type='text' className='editInputs' id={"descriptionInupt-"+experience.id} defaultValue={experience.description}></textarea>
                             </div>
                             <div className="resumeBtns">
-                                <button className="editExperience">Edit Experience</button>
+                                <button className="editExperience" onClick={()=>editExperience(experience.id)}>Edit Experience</button>
                                 <button className="deleteExperience" onClick={()=>removeExperience(experience.id)}>Delete Experience</button>
                             </div>
                         </div>
