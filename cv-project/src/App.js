@@ -19,7 +19,7 @@ class App extends Component {
             email : '',
             linkedIn : '',
             about : '',
-            degree: {school : '', major : '', minor : '',startDate : '', endDate:'', id: uniqid()},
+            degree: {school : '', major : '', minor : '', endDate:'', id: uniqid()},
             education: [],
             experience: { company:'', position:'', description:'', startDate:'', endDate:'', id: uniqid()},
             workHistory: [],
@@ -72,7 +72,6 @@ class App extends Component {
                 return{
                     school: document.getElementById("schoolInupt-"+degree.id).value,
                     major: document.getElementById("majorInupt-"+degree.id).value,
-                    startDate: document.getElementById("startDateInupt-"+degree.id).value,
                     endDate: document.getElementById("endDateInupt-"+degree.id).value,
                     minor: document.getElementById("minorInupt-"+degree.id).value,
                     id: uniqid()
@@ -103,7 +102,6 @@ class App extends Component {
                 school: document.getElementById('schoolInput').value,
                 major: document.getElementById('majorInput').value,
                 minor: document.getElementById('minorInput').value,
-                startDate: document.getElementById('schoolStartInput').value,
                 endDate: document.getElementById('schoolEndInput').value,
                 id: this.state.degree.id
             }
@@ -130,7 +128,6 @@ class App extends Component {
                 school: '',
                 major: '',
                 minor: '',
-                startDate: '',
                 endDate: '',
                 id: uniqid()
             }
@@ -286,14 +283,7 @@ class App extends Component {
                             id = 'minorInput'
                             value={this.state.degree.minor}
                         />
-                        <label id='schoolStartLabel' className='label'>Start Date</label>
-                        <input 
-                            onChange={this.educationChange}
-                            type='month'
-                            id = 'schoolStartInput'
-                            value={this.state.degree.startDate}
-                        />
-                        <label id='schoolEndLabel' className='label'>End Date</label>
+                        <label id='schoolEndLabel' className='label'>Graduation Date</label>
                         <input 
                             onChange={this.educationChange}
                             type='month'
@@ -309,7 +299,7 @@ class App extends Component {
                         <button onClick={this.editMode} className='previewBtns'>Edit Mode</button>
                         <button onClick={this.previewMode} className='previewBtns'>Peview Mode</button>
                     </div>
-                    <div className='resume'>
+                    <div id='resume'>
                         <div className='resumeHead'>
                             <Header name = {this.state.fullName} phone = {this.state.phoneNumber} email = {this.state.email} linkedIn = {this.state.linkedIn} about = {this.state.about}/>
                         </div>
