@@ -241,14 +241,14 @@ class App extends Component {
                         <label id='positionStartLabel' className='label'>Start Date</label>
                         <input 
                             onChange={this.experienceChange}
-                            type='date'
+                            type='month'
                             id = 'positionStartInput'
                             value={this.state.experience.startDate}
                         />
                         <label id='positionEndLabel' className='label'>End Date</label>
                         <input 
                             onChange={this.experienceChange}
-                            type='date'
+                            type='month'
                             id = 'positionEndInput'
                             value={this.state.experience.endDate}
                         />
@@ -289,14 +289,14 @@ class App extends Component {
                         <label id='schoolStartLabel' className='label'>Start Date</label>
                         <input 
                             onChange={this.educationChange}
-                            type='date'
+                            type='month'
                             id = 'schoolStartInput'
                             value={this.state.degree.startDate}
                         />
                         <label id='schoolEndLabel' className='label'>End Date</label>
                         <input 
                             onChange={this.educationChange}
-                            type='date'
+                            type='month'
                             id = 'schoolEndInput'
                             value={this.state.degree.endDate}
                         />

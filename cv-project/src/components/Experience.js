@@ -15,23 +15,15 @@ const Experience = (props) => {
                             </div>
                             <div className="experienceInfo">
                                 <div className="position">
-                                    <p>{experience.position}</p>
+                                    <h4>{experience.position}, {experience.startDate} to {experience.endDate}</h4>
                                     <input type='text' className='editInputs' id={"positionInupt-"+experience.id} defaultValue={experience.position}></input>
-                                </div>
-                                <div className="dates">
-                                    <div className="positionStartDate">
-                                        <p>{experience.startDate}</p>
-                                        <input type='date' className='editInputs' id={"startDateInupt-"+experience.id} defaultValue={experience.startDate}></input>
-                                    </div>
-                                    <div className="posiitonEndDate">
-                                        <p>{experience.endDate}</p>
-                                        <input type='date' className='editInputs' id={"endDateInupt-"+experience.id} defaultValue={experience.endDate}></input>
-                                    </div>
+                                    <input type='month' className='editInputs' id={"startDateInupt-"+experience.id} defaultValue={experience.startDate}></input>
+                                    <input type='month' className='editInputs' id={"endDateInupt-"+experience.id} defaultValue={experience.endDate}></input>
                                 </div>
                             </div>
                             <div className="description">
                                 <p>{experience.description}</p>
-                                <textarea type='text' className='editInputs' id={"descriptionInupt-"+experience.id} defaultValue={experience.description}></textarea>
+                                <textarea type='text' className='editInputs descriptionEdit' id={"descriptionInupt-"+experience.id} defaultValue={experience.description}></textarea>
                             </div>
                             <div className="resumeBtns">
                                 <button className="editExperience" onClick={()=>editExperience(experience.id)}>Edit Experience</button>

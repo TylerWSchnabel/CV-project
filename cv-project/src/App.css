@@ -124,8 +124,20 @@ body{
   border-top: solid;
 }
 
-.experienceDiv{
- display: grid;
+.experienceDiv, .educationDiv{
+ border-left: solid;
+ padding-left: 2rem;
+}
+
+.experienceInfo{
+  display: block;
+  
+}
+.descriptionEdit{
+  height: 200px;
+  resize: vertical;
+  white-space: pre-wrap;
+  width: 500px;
 }
 
 .company {
@@ -141,4 +153,21 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  grid-column: 1/ span 4;
+}
+
+.degree {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.school {
+  grid-column: 1/ span 4;
+  padding-bottom: 0px;
+  
+}
+
+.major, .minor {
+  grid-column: 1/ span 4;
+  padding-top: 0px;
 }
